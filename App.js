@@ -1,12 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import SplashComponent from './src/components/splashComponent';
-import Logo from './src/components/Logo/logo';
+
+import { StyleSheet} from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import NormalButton from './src/components/Buttons/NOrmalButton';
+import Choice from './src/components/choice';
+import CHoiceScreen from './src/utils/Screens/ChoiceScreen';
 export default function App() {
   return (
-    <SplashComponent > 
-      <Logo/>
-      </SplashComponent>
+    <SafeAreaProvider>
+    <SafeAreaView>
+      <CHoiceScreen></CHoiceScreen>
+    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
