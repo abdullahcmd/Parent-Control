@@ -11,9 +11,9 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const { width, height } = Dimensions.get("window");
 
-const ChoiceButton = ({texxt}) => {
+const ChoiceButton = ({texxt,style}) => {
   return (
-    <TouchableOpacity style={styles.buttonStyle}>
+    <TouchableOpacity style={[styles.buttonStyle,style]}>
       <LinearGradient
         colors={[AppColors.gradientColor1, AppColors.gradientColor2]}
         start={{ x: 0, y: 0 }}
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   gradientSTyle:{
     borderRadius:6,
     justifyContent:'center',
-    height:height*0.045
+    height:height*0.05
   }
 });
 

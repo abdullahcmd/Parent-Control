@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-
-const LoginComp = () => {
+import LoginComp from "../../components/LoginComponent/login"
+const LoginScreen = () => {
   return (
-    <View style={styles.container}>
-    </View>
+    <LoginComp></LoginComp>
   );
 };
 
@@ -16,4 +15,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginComp;
+export default LoginScreen;
