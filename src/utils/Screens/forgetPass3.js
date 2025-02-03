@@ -11,31 +11,12 @@ import {
 import { height, width } from "../../constants/Dimensions/Dimensions";
 import Heading from "../../components/TextCOmponents/TextHead";
 import ChoiceButton from "../../components/Buttons/button";
+import Icon from "../../assets/icons/Icon.svg"
 
-const ForgetPass2 = () => {
 
-    const otpLength = 5; // Number of OTP fields
-    const otpRefs = useRef([]); // Store refs for each TextInput
-    const [otp, setOtp] = useState(Array(otpLength).fill("")); // Store OTP values
+const ForgetPass3 = () => {
+
   
-    const handleChange = (text, index) => {
-      if (text.length > 1) return; // Ensure only one character is entered
-  
-      const newOtp = [...otp];
-      newOtp[index] = text;
-      setOtp(newOtp);
-  
-      // Move focus to the next field if there is input
-      if (text && index < otpLength - 1) {
-        otpRefs.current[index + 1].focus();
-      }
-    };
-  
-    const handleKeyPress = (e, index) => {
-      if (e.nativeEvent.key === "Backspace" && index > 0) {
-        otpRefs.current[index - 1].focus(); // Move focus to the previous input on backspace
-      }
-    };
 
 
 
@@ -43,28 +24,12 @@ const ForgetPass2 = () => {
     <View style={styles.container}>
       <Heading content={"Forget Password"} style={styles.Login} />
       <View style={styles.divider} />
-      <View style={styles.textCOntainer}>
-        <Text style={styles.normalText}>
-          Check your email at <Text style={styles.linkText}>abc@gmail.com</Text>{" "}
-          or a password reset link.
-        </Text>
-      </View>
 
-      <View style={styles.otpContainer}>
-      {otp.map((_, index) => (
-        <View key={index} style={styles.otpBox}>
-          <TextInput
-            ref={(el) => (otpRefs.current[index] = el)} // Assign ref dynamically
-            style={styles.otpInput}
-            keyboardType="numeric"
-            maxLength={1}
-            value={otp[index]}
-            onChangeText={(text) => handleChange(text, index)}
-            onKeyPress={(e) => handleKeyPress(e, index)}
-            autoFocus={index === 0} // Auto-focus the first input
-          />
-        </View>
-      ))}
+      <View style={styles.textCOntainer}>
+        <Icon style={styles.iconStyle}/>
+        <Text style={styles.normalText}>
+          Password Reset Successfully.
+        </Text>
       </View>
 
       <ChoiceButton texxt={"Submit"} style={{ marginTop: height * 0.02 }} />
@@ -75,7 +40,7 @@ const ForgetPass2 = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: height * 0.35,
+    height: height * 0.4,
     backgroundColor: "white",
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
@@ -170,7 +135,10 @@ const styles = StyleSheet.create({
     borderBottomWidth:3,
     width:width*0.035,
     alignSelf:'center'
+  },
+  iconStyle:{
+    alignSelf:'center'
   }
 });
 
-export default ForgetPass2;
+export default ForgetPass3;
